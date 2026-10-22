@@ -7,10 +7,6 @@
   "scope": "./",
   "id": "./",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone"
-  ],
   "background_color": "#e9f0fb",
   "theme_color": "#13204a",
   "icons": [
