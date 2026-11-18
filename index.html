@@ -84,6 +84,7 @@ button { cursor: pointer; }
 .gtools { justify-self: end; display: flex; gap: 6px; }
 .ibtn { display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line);
   background: var(--solid); font-weight: 700; font-size: .9rem; color: var(--fg); }
+a.ibtn { text-decoration: none; }
 .ibtn svg { width: 18px; height: 18px; flex: none; }
 .ibtn:hover { border-color: var(--dim); }
 .ibtn[aria-pressed="false"] { color: var(--dim); }
@@ -385,6 +386,7 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
   <symbol id="i-slot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="15" height="14" rx="3"/><path d="M7 10v4M10.5 10v4M14 10v4M21 7v6M21 7a1 1 0 1 0 0-.01"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M4 8h16M9.5 8v13M14.5 8v13M4 13h16M4 17h16"/></symbol>
   <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
   <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
   <symbol id="i-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
@@ -404,6 +406,7 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
   </div>
   <div class="gtools">
     <button class="ibtn install" id="installBtn" type="button" hidden title="Instalar o Tangará Sorteia neste computador"><svg aria-hidden="true"><use href="#i-pdf"/></svg><span>Instalar app</span></button>
+    <a class="ibtn" href="https://formacaocontinuada-hue.github.io/portalsemec_tgamt/" title="Voltar ao Portal SEMEC"><svg aria-hidden="true"><use href="#i-back"/></svg><span>Portal</span></a>
     <button class="ibtn" id="setBtn" type="button" title="Nome do evento"><svg aria-hidden="true"><use href="#i-edit"/></svg><span>Evento</span></button>
     <button class="ibtn" id="splashBtn" type="button" title="Mostrar a abertura"><svg aria-hidden="true"><use href="#i-home"/></svg><span>Abertura</span></button>
     <button class="ibtn" id="soundBtn" type="button" aria-pressed="true" title="Ligar ou desligar o som"><svg aria-hidden="true"><use href="#i-sound"/></svg><span id="soundTxt">Som</span></button>
