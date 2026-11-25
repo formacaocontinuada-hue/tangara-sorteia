@@ -406,7 +406,7 @@ input[type="range"] { width: 100%; accent-color: var(--blue); }
   </div>
   <div class="gtools">
     <button class="ibtn install" id="installBtn" type="button" hidden title="Instalar o Tangará Sorteia neste computador"><svg aria-hidden="true"><use href="#i-pdf"/></svg><span>Instalar app</span></button>
-    <a class="ibtn" href="https://formacaocontinuada-hue.github.io/portalsemec_tgamt/" title="Voltar ao Portal SEMEC"><svg aria-hidden="true"><use href="#i-back"/></svg><span>Portal</span></a>
+    <a class="ibtn" id="voltaPortal" href="https://formacaocontinuada-hue.github.io/portalsemec_tgamt/" title="Voltar ao Portal SEMEC"><svg aria-hidden="true"><use href="#i-back"/></svg><span>Voltar</span></a>
     <button class="ibtn" id="setBtn" type="button" title="Nome do evento"><svg aria-hidden="true"><use href="#i-edit"/></svg><span>Evento</span></button>
     <button class="ibtn" id="splashBtn" type="button" title="Mostrar a abertura"><svg aria-hidden="true"><use href="#i-home"/></svg><span>Abertura</span></button>
     <button class="ibtn" id="soundBtn" type="button" aria-pressed="true" title="Ligar ou desligar o som"><svg aria-hidden="true"><use href="#i-sound"/></svg><span id="soundTxt">Som</span></button>
@@ -1418,6 +1418,17 @@ addEventListener("appinstalled", () => { installEvt = null; showInstall(false); 
 async function doInstall() { if (!installEvt) return; installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; showInstall(false); }
 $("installBtn").onclick = doInstall; $("installSplash").onclick = doInstall;
 if ("serviceWorker" in navigator && document.querySelector('link[rel="manifest"]') && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("sw.js").catch(() => {});
+
+/* Caminho de volta: o Portal manda ?de=escola|semec|formador e o botão Voltar leva para a mesma área. */
+(function () {
+  var AREAS = { escola: ['escola.html', 'Área da Escola'], semec: ['semec.html', 'Área da SEMEC'], formador: ['formador.html', 'Área do Formador'] };
+  var de = '';
+  try { de = new URLSearchParams(location.search).get('de') || ''; } catch (e) {}
+  var a = AREAS[de], b = document.getElementById('voltaPortal');
+  if (!a || !b) return;
+  b.href = 'https://formacaocontinuada-hue.github.io/portalsemec_tgamt/' + a[0];
+  b.title = 'Voltar para a ' + a[1];
+})();
 </script>
 
 </body>
